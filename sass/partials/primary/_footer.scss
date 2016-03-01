@@ -1,0 +1,110 @@
+.cs-big-footer {
+    background: white;
+    padding: 10px 0 0 0;
+    margin: 0;
+    img {
+        opacity: .7;
+        transition: opacity, .8s;
+        &:hover {
+            opacity: 1.0;
+            transition: opacity, .2s;
+        }
+    }
+    .cs-link-strip-upper {
+        ul {
+            li {
+                list-style-type: none;
+                display: inline-block;
+                padding: 15px 38px;
+            }
+        }
+    }
+    .cs-link-list {
+        border-top: 1px solid $green;
+        margin: 0;
+        padding: 15px;
+        h4 {
+            font-size: $font-size-base - 3;
+            @include font-arial;
+            color: $blue;
+            font-weight: $bold;
+        }
+        a {
+            font-size: $font-size-base - 3;
+            @include font-arial;
+            font-weight: $normal;
+            line-height: 12px;
+            color: $near-black;
+            display: block;
+            &:hover {
+                color: $orange;
+                text-decoration: none;
+            }
+        }
+        .col-sm-4 {
+            border-right: 1px solid $light-grey;
+            padding-bottom: 30px;
+            padding-left: 10px;
+            &.cs-footer-sc-med {
+                border-right: none;
+            }
+        }
+        .cs-footer-sc-med {
+            a {
+                display: inline-block;
+            }
+        }
+        .cs-footer-customer-quote {}
+    }
+    .cs-link-strip-lower {
+        border-top: 1px solid $green;
+        padding: 8px 8px 0 8px;
+        li {
+            list-style-type: none;
+            display: inline-block;
+            padding: 5px 10px;
+            span {
+                height: 20px;
+                display: block;
+                text-align: center;
+                margin: 0 auto;
+                line-height: 7px;
+                padding: 0;
+                &:first-of-type {
+                    padding-top: 8px;
+                    @include font-arial;
+                    color: $blue;
+                    font-weight: $bold;
+                    font-size: $font-size-base;
+                    margin-bottom: 2px;
+                }
+                &span:nth-of-type(2) {
+                    font-size: $font-size-base - 6;
+                    @include font-arial;
+                }
+            }
+        }
+    }
+}
+
+.cs-copyright {
+    border-top: 1px solid $green;
+    background: #ffffff;
+    text-align: center;
+    padding: 15px;
+    line-height: 2px;
+    p {
+        font-size: $font-size-base - 5;
+        span {
+            padding: 0 2px;
+        }
+        a {
+            text-decoration: underline;
+            color: $near-black;
+            font-size: $font-size-base - 5;
+            &:hover {
+                color: $blue;
+            }
+        }
+    }
+}

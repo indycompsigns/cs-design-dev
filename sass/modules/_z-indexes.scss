@@ -1,0 +1,24 @@
+
+
+$zindex: (
+	shrinking-header 				: 10,
+	fancybox-wrap-twenty    		: 10002, 
+	fancybox-opened-thirty 			: 10003,
+	fancybox-loading-sixty			: 10006,
+	fancybox-close-forty            : 10004,
+	fancybox-nav-forty              : 10004,
+	fancybox-nav-span-forty         : 10004,
+	fancybox-overlay-ten            : 10010,
+	fancybox-title-fifty            : 10005,
+	fancybox-title-float-wrap-fifty : 10005,
+	modal  							: 20000,
+	modal-close-x-button-top 		: 20008,
+	modal-responsive-img  			: 20003,
+	modal-responsive-button  		: 20002    
+	
+);
+
+// .header {
+//   z-index: map-get($zindex, header);
+// }
+

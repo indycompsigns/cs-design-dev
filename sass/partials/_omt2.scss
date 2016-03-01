@@ -1,0 +1,239 @@
+/*   --------------     OMT Table Revision 2-12-16  --------------    */
+
+
+/* structure of the table works like this:
+cs-pp-rightWorkArea
+
+            *******OMT STARTS HERE  {THIS IS WHAT IS IN THIS SCSS FILE}
+    cs-green-OMT-box
+        cs-pp-omt
+            more-info-td2 - old qbt review box
+                productinfo qbtReviewBoxT005b
+            Table (empty)
+            Table (empty)
+        qbtProductFormT005b
+            col-sm-12
+                h2  - TITLE
+            Form name"mainform"  - applies discount - lots of hidden inputs
+
+
+                script that injects the OMT Magic Menu (backend call to server - php file)
+                {Injected code below:}
+                #tabs_1  (for the first set of tabs - old page had tabs later in the page as well)
+                    ul#qbtMenuTabsT005b - this is the entire set of tabs across the OMT to material types
+                        li#tabs1first.over
+                            span#tab1li1
+                        li
+                            span#tab1li2
+                        li
+                            span#tab1li3
+                        li
+                            span#tab1li4    {etc....}
+                    div#tabs1content
+                        #tab1s1   {display Block}
+                        table.orderopt  {row including the material and the price}
+                            td.orderopt-td1    {first column, the radio button}
+                            td.orderopt-td2     {second column, the material}
+                            td.orderopt-td3    {third column, the price}
+                        #tab1s2   {display: none}  {see above for the rows, they are the same, except hidden until the corresponding tab is clicked on}
+                        #tab1s3   {display: none}
+                        #tab1s4   {display: none}      {etc...} 
+
+                *****end of the OMT styles - the next sections, handling pricing, add to cart, most popular options, are all in the productPage.scss
+
+/* -----------  OMT styles    --------   */
+
+//adding the bold to the Materials line selected in the OMT
+.orderopt.now-selected {
+    background-color: lighten($light-green, 10%);
+    .orderopt-td2,
+    .orderopt-td3 {
+        font-weight: bold;
+    }
+}
+
+//Controls for the green box and outline around OMT (also the add to cart functionality)
+#qbtProductFormT005b {
+    background-color: $lightest-green;
+    padding: 20px 0 0 0;
+    border-radius: 3px;
+    border: 1px solid $green;
+    float: left;
+    form {
+        padding-top: 10px;
+        float: left;
+        padding-bottom: 10px;
+    }
+}
+
+.cs-pp-omt {
+    position: relative;
+    input {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: #000000;
+        text-decoration: none;
+    }
+    #tabs_1 {
+        width: 100%; // changed this from a 458px to percentage
+        padding: 0 20px;
+    }
+    #tabs_1 ul {
+        width: 100%;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        background-image: none;
+        background-color: $lightest-green !important;
+        list-style: none;
+        transition: background .8s;
+        li:hover {
+            span {
+                background: transparent;
+                color: #ffffff;
+            }
+        }
+        li:hover {
+            background-color: darken($green-inactive-tab, 10%);
+            transition: background .25s;
+        }
+    }
+    li:hover {
+        background-color: darken($green-inactive-tab, 15%);
+        transition: background .25s;
+    }
+}
+
+div#tabs_1 ul,
+div#tabs ul {
+    height: 24px;
+}
+
+div#tabs_1 ul li {
+    padding: 3px 10px 5px 10px;
+    border-radius: 3px 3px 0px 0px;
+    margin-right: 5px;
+    background: lighten($green, 30%);
+    color: $green;
+    float: left;
+    height: 2em;
+    font-weight: $bold;
+    cursor: pointer;
+    &.over {
+        background: $green-inactive-tab;
+        color: #fff;
+        float: left;
+        list-style: none;
+        cursor: pointer;
+        span {
+            background-position: 100% -33px;
+            color: #ffffff;
+            background-color: $green-active-tab;
+            font-weight: $bold;
+        }
+    }
+    span {
+        color: $darkest-green;
+    }
+}
+
+div#tabs1content,
+div#tabscontent {
+    border: 1px solid $green-inactive-tab;
+    border-radius: 0px 3px 3px 3px;
+    margin-top: 0px;
+}
+
+#tabs1content {
+    padding: 1.5em .8em .8em .8em;
+    position: relative;
+    top: -0.2em !important;
+    background-color: #fff !important;
+}
+
+
+/* ------------   OMT Radio Buttons, materials and price styles    ------   */
+
+//OMT list items styling - each row in a table with this class - t.orderopt is really table.orderopt
+.orderopt {
+    width: 438px;
+}
+
+//OMT - td has the radio button
+.orderopt td {
+    //padding here controls what looks like line-spacing
+    padding: 0 0 3px;
+    //vertical-align: top;
+}
+
+//OMT -width controls distance between radio button and text
+.orderopt-td1 {
+    width: 26px;
+}
+
+//OMT controls the padding of the price for each material
+.orderopt-td3 {
+    text-align: right;
+    width: 80px;
+    padding: 0 10px 3px;
+}
+
+
+/* Product Page - big add to cart orange button    */
+
+input.cs-cart-btn {
+    background: $orange;
+    border-radius: 3px;
+    font-size: $font-size-base + 3;
+    font-weight: $normal;
+    padding: 11px 11px;
+    color: #ffffff;
+    display: block;
+    width: 100%;
+    white-space: normal;
+    border: 1px solid #ffffff;
+    @include font-normal;
+    transition: background .8s, color .8s;
+    text-transform: capitalize;
+    &:hover {
+        color: #ffffff;
+        background: $blue;
+        transition: background .25s, color .25s;
+    }
+}
+
+
+/* Product Page - Total line - forces the total to fill the line even when nothing is there */
+
+#qbtTotalPriceDiv {
+    width: 100%;
+    display: block;
+}
+
+
+/* Product Page - Enter Custom Text   */
+
+.moreinfo-td2 {}
+
+.cs-enter-text {
+    display: inline-block;
+    padding: 0 10px 20px 10px;
+    width: 100%;
+    span {
+        display: inline-block;
+        font-size: 35px;
+        color: $orange;
+        margin-left: 20px;
+        position: relative;
+        top: 4px;
+    }
+    input#freeoptinput {
+        margin-left: 0px;
+        width: 50%;
+        padding: 3px;
+    }
+}
+
+div#qbtProductFormT005b > h2 {
+    margin: 10px 16px 0px 16px;
+}

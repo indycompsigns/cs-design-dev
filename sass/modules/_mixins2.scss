@@ -1,0 +1,191 @@
+/* ---------------- FORM ITEMS - LABELS, BUTTONS etc MIXINS ---------------- */
+
+$medium: 400;
+$bold: bold;
+$label-color-selected: #ffffff;
+$label-color: $label-grey;
+$label-text-size: 12px;
+$label-layout: block;
+$button-border-color: $light-grey;
+$button-text: 17px;
+$button-bkg-color: #ffffff;
+$btn-color: $light-grey;
+$button-padding-top: 0px;
+$btn-label-light: #ffffff;
+$btn-label-light-reverse: $near-black;
+$button-height: 28px;
+$button-height-lg: 38px;
+$button-width: 62px;
+$button-grp-bkg: #BCBEC0;
+//dimm preview, save buttons:
+$button-dimm-border-color: $lightest-grey;
+$button-dimm-bkg-color: #ffffff;
+$cs-btn-color-green: #00824C;
+$cs-btn-color-brown: #6D3A1C;
+$cs-btn-color-blue: #00529B;
+$cs-btn-color-white: #ffffff;
+//input lengths, default is short (80px)
+$cs-csg3-input-field-length: 94px;
+$cs-csg3-input-field-length-long: 188px;
+//padding for above labels, originally for the Street Sign Generator - this is in a mixin for future flexibility (in case other padding should be added or changed)
+@mixin label-padding {
+    padding-top: $button-padding-top;
+}
+
+@mixin rounded {
+    border-radius: 4px;
+}
+
+@mixin label-standard-stuff {
+    color: $label-color;
+    font-size: $label-text-size;
+    font-weight: $medium;
+    @include font-condensed;
+    display: $label-layout;
+    margin-bottom: 4px;
+    @include rounded;
+}
+
+@mixin button-standard-stuff {
+    color: $label-grey;
+    @include font-condensed;
+    font-weight: $medium;
+    height: 38px;
+    font-size: $button-text;
+    background: $unselected-bkg;
+    padding: 4px;
+    margin: 0;
+    border-style: solid;
+    border-width: 1 px;
+    border-color: $button-dimm-border-color;
+    @include rounded;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin button-standard-stuff-selected {
+    color: $near-black;
+    background: #ffffff;
+    @include font-condensed;
+    font-weight: $medium;
+    height: $button-height-lg;
+    font-size: $button-text;
+    border: 2px solid $orange;
+    border-radius: 4px;
+    @include rounded;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin button-light-green-stuff {
+    color: $green;
+    @include font-condensed;
+    font-weight: $medium;
+    height: 32px;
+    font-size: $button-text - 5;
+    background: #ffffff;
+    padding: 2px 6px;
+    margin: 0;
+    border-style: solid;
+    border-width: 1 px;
+    border-color: $light-green;
+    @include rounded;
+    box-sizing: border-box;
+    white-space: normal;
+    vertical-align: top;
+    margin-top: 4px;
+    line-height: 12px;
+}
+
+//  called inside btn-group on buttuns2.scss
+@mixin button-group-controls-csg ($button-border-color, $button-bkg-color, $button-text, $button-height, $label-color, $label-text-size, $label-layout) {
+    display: block;
+    width: 100%;
+    border: $button-border-color;
+    background: $button-bkg-color;
+    @include rounded;
+    //standard (non-colored) button styles
+    button {
+        @include button-standard-stuff;
+        &.bu-selected {
+            @include button-standard-stuff-selected;
+        }
+        &.cs-btn-smaller-text {
+            font-size: 15px;
+            line-height: 13px;
+        }
+        &:hover {
+            background-color: darken($button-bkg-color, 4%);
+        }
+        //labels are the field labels above sets of buttons or above fields 
+    }
+    label {
+        @include label-standard-stuff;
+    }
+}
+
+//mixin for the colored buttons to use
+@mixin cs-btn-colored ($btn-color) {
+    background: $btn-color;
+    color: set-button-text-color($btn-color);
+    @include rounded;
+    &:hover {
+        background-color: darken($btn-color, 4%);
+    }
+    &.bu-selected {
+        background: $btn-color;
+        color: set-button-text-color($btn-color);
+    }
+}
+
+//  called inside btn-group on buttuns2.scss
+@mixin button-group-dimmed-csg ($button-dimm-border-color, $button-dimm-bkg-color, $button-text, $button-height, $label-grey, $label-color, $label-text-size, $label-layout) {
+    display: block;
+    border: $button-dimm-border-color;
+    @include rounded;
+    //standard (non-colored) button styles
+    button {
+        @include button-standard-stuff;
+        background: $button-dimm-bkg-color;
+        transition: border-color .6s, color .6s;
+        &.bu-selected {
+            @include button-standard-stuff-selected;
+        }
+        &.cs-btn-smaller-text {
+            font-size: $button-text - 2;
+            line-height: 13px;
+        }
+        &:hover {
+            background-color: darken($button-bkg-color, 4%);
+            //transition: border-color .25s, color .25s;
+        }
+        //labels are the field labels above sets of buttons or above fields 
+    }
+    label {
+        @include label-standard-stuff;
+    }
+}
+
+//green button dimmed for Information section on Product Page
+@mixin button-group-green-dimmed-csg ($button-width) {
+    display: block;
+    button {
+        @include button-light-green-stuff;
+        transition: border-color .6s, color .6s;
+        &:hover {
+            //background-color: darken(#ffffff, 4%);
+            color: $green;
+            border-color: $green;
+            //transition: border-color .25s, color .25s;
+        }
+    }
+}
+
+//Box shadows - uses rgb equiv of this:  $light-grey  
+@mixin box-shadow {
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(167, 169, 172, 1);
+    -moz-box-shadow: 0px 0px 1px 1px rgba(167, 169, 172, 1);
+    box-shadow: 0px 0px 1px 1px rgba(167, 169, 172, 1);
+}

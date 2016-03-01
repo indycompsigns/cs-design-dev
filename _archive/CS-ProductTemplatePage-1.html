@@ -1,0 +1,56 @@
+<td valign="top" align="center" width="33%">
+    <p class="CSText">
+        <a name="[-- PRODUCT.RecordNumber --]"></a>
+        <a href="[-- PRODUCT.MoreInfoURL --]" class="CSProdName"><img src="http://cdn.compliancesigns.com/media/[-- IMAGE PRODUCT.Graphic --]" border="0" alt="[-- Product.GoogleProductType JS_ENCODE --]" title="[--Product.Name--]" /></a>
+        <br><span class="CSProdSKU">
+[-- PRODUCT.SKU --]</span> [-- IF PRODUCT.Field15 --]
+        <a class="zoomicon" style="display:none" href="/media/[-- PRODUCT.Field15 --]"><img src="http://cdn.compliancesigns.com/media/css/zoom-icon.png" width="20" height="20" border=0 title="Click to view a larger image" /></a>[-- END_IF --]
+        <br>
+</td>
+[--END_DEFINE PRODUCT--] [-- DEFINE PRODUCT_CROSS_SELL --]
+<a href="[-- Product.MoreInfoURL --]" class="rvlink"><img src="http://cdn.compliancesigns.com/media/[-- IMAGE Product.Graphic --]" alt="[-- Product.GoogleProductType JS_ENCODE --]" title="[--Product.Name--]" /></a>
+[-- END_DEFINE PRODUCT_CROSS_SELL --] [-- DEFINE MORE_INFO_PAGE--] [-- INCLUDE AJAX-head_tag_product_new_size_material process --] [-- INCLUDE AJAX-ending_head_tag --]
+
+<body>
+    [-- SS_MOBILE_REDIRECT --]
+    <!-- BEGIN: Google Tag Manager SSite Include-->
+    [-- INCLUDE GoogleTagManager --]
+    <!-- END: Google Tag Manager SSite Include-->
+    <tr>
+        <td align="left" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="10" align="right" valign="top"></td>
+                    <td width="969" align="left" valign="top" style="background:#FFFFFF; padding:0px 7px 0px 7px;">
+                        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <div style="width:969px;">
+                                        <div id="container_home" style="position:static!important">
+                                            <div id="header-panel_home" style="position: relative;">
+                                                [-- include _cs-header2016.html process --]
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top" class="footer_bg">
+                                    [-- include new_csigns-anim2011_footer-FEB2014.html process --]
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="19" align="left" valign="top"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    </table>
+    <link rel="stylesheet" type="text/css" href="/css/variation.css"> [-- include email-popup.html --]
+    <!-- BEGIN: Google Trusted Store Badge-->
+    <!-- END: Google Trusted Store Badge-->
+    [-- INCLUDE ending_body_tag --]
+
+    </html>
+    [--END_DEFINE MORE_INFO_PAGE--]

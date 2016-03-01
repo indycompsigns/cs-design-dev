@@ -1,0 +1,99 @@
+
+
+
+
+.cs-marketing-square-container {
+    height: 177px;
+    background: #ffffff;
+    color: $grey;
+    padding: 10px 0;
+    border-top: 1px solid #386b54;
+    box-sizing: border-box;
+    display: inline-flex;
+    a:hover {
+        text-decoration: none;
+    }
+    h4 {
+        text-align: center;
+        //padding: 10px;
+        font-weight: $bold;
+        font-size: $font-size-base + 4;
+    }
+    ul {
+        h4 {
+            margin-left: -15px;
+            text-align: left;
+            font-weight: $bold;
+            font-size: $font-size-base + 7;
+            color: $grey;
+        }
+        li {
+            @include font-condensed;
+            color: $green;
+            font-size: $font-size-base + 2;
+            font-weight: $normal;
+            line-height: $font-size-base + 10;
+        }
+    }
+    button.cs-btn-mktg-sq {
+        border-radius: 8px;
+        border: 1px solid #ffffff;
+        background-color: $green;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        white-space: inherit;
+        max-height: 80px;
+        transition: border, background-color, color .8s;
+        max-width: 180px;
+        margin: 0 auto;
+        &:hover,
+        &:active {
+            background-color: #ffffff;
+            color: $green;
+            outline: none;
+            border: 1px solid $green;
+            transition: border .25s, background-color .25s, color .25s;
+        }
+    }
+    .cs-marketing-square-specs {
+        background: $light-green;
+        margin: 0 3px 0 0;
+        padding: 15px;
+        display: flex;
+        flex-grow: 5;
+        flex-basis: 41%;
+        flex-flow: column nowrap;
+    }
+    .cs-marketing-square-languages {
+        background: $light-green;
+        margin: 0 3px;
+        padding: 15px;
+        display: flex;
+        flex-grow: 1;
+        flex-basis: 18%;
+        flex-flow: column nowrap;
+        h4 {
+            font-size: $font-size-base + 2;
+        }
+    }
+    .cs-marketing-square-customize {
+        padding: 0;
+        border: 2px solid;
+        border-color: $light-green;
+        border-right: none;
+        margin: 0 0 0 3px;
+        display: flex;
+        flex-grow: 5;
+        flex-basis: 41%;
+        flex-flow: column nowrap;
+        background-image: url("/images/yourMsg.png");
+        background-position: 100% 0;
+        background-size: 184px 154px;
+        background-repeat: no-repeat;
+        transition: border .5s;
+        &:hover {
+            border-color: $green;
+            transition: border-color .2s;
+        }
+    }
+}

@@ -1,0 +1,56 @@
+<!-- <script
+ src="/cgi-compliancesigns/webdata_pro.pl?_cgifunction=search&amp;_layout=kudos_pausecontent"></script>  -->
+<!-- <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.sync.bootstrap.min.js"></script>  -->
+<script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/minicart.js"></script>
+<!-- <script type="text/javascript" src="/js/colorselector.js"></script>  -->
+<script type="text/javascript" src="/js/pausescroller.js"></script>
+<script type="text/javascript" src="/js/jquery-cookie.js"></script>
+<!-- fancybox is critical for the Zoom popups on product page  -->
+<script type="text/javascript" src="/js/jquery.fancybox.js"></script>
+<!-- <script type="text/javascript" src="/magicscroll/magicscroll.js"></script> -->
+<script type="text/javascript" src="/js/history-tracking.js"></script>
+<!-- <script type="text/javascript" src="/js/csigns-sub-inline-scripts.js"></script> -->
+<!-- <script type="text/javascript" src="/js/mainProductInterior.js"></script> -->
+<!-- <script type="text/javascript" src="/js/jquery.maskMoney.min.js"></script> -->
+<script type="text/javascript" src="/js/confirmed.js"></script>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="/slick-1.5.9/slick/slick.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery-loader.js"></script> -->
+
+
+<!-- script below must be inside an include due to needing to be processed  -->
+<script type="text/javascript">
+
+
+    //this is what "clicks" the default OMT row
+    $(function() {
+        var $ = jQuery;
+        // set default size option
+        var defaultoption = "[-- PRODUCT.Field11 --]";
+        if (!defaultoption.match(/Empty/i)) {
+            var tmp = defaultoption.split(' ');
+            var firstmatch = 1;
+            $('.orderopt > tbody > tr > td').each(function() {
+                if ($(this).text().trim() == "[-- PRODUCT.Field11 --]") {
+                    if (firstmatch) {
+                        $(this).prev().find(':radio').click().each(function() {
+                            $('#price').val($(this).parent().next().next().text());
+                        });
+                        var $tabsnameel = $(this).parents('div');
+                        var tabsname = $tabsnameel.attr('id');
+                        tabsname = tabsname.replace('tab1s', 'tab1li');
+                        $('#' + tabsname).click();
+                        //console.log();
+                        firstmatch = 0;
+                    }
+                    $(this).css('font-weight', 'bold').append(' *');
+                }
+            });
+            $('#mostpopular').show();
+        };
+    });
+
+</script>

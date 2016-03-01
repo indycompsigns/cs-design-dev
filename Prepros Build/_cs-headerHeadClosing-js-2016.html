@@ -1,0 +1,194 @@
+<script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://www.compliancesigns.com/media/en-US/javascript/mdetect.js"></script>
+
+<!-- <script src="/new_csigns_anim2010/webplugs-menu/webplugs/webplugs.js" type="text/javascript"></script> -->
+<!-- ie 8 support - needs respond.js for media queries to work - run after all the css, but closest to top of page as possible -->
+<!-- <script src="js/respond.min.js"></script>  -->
+    <!-- END QBIT PRODUCTS CODE -->
+    <!-- QUBIT OpenTag BEGIN -->
+    <!-- temporarily OpenTag is off for troubleshooting  -->
+    <!-- <script src='//d3c3cq33003psk.cloudfront.net/opentag-112693-1495451.js' async defer></script>  -->
+    <!-- QUBIT OpenTag END -->
+
+<!-- BEGIN Google Data Layer for Ninja Analytics -->
+<script language="JavaScript" type="text/javascript">
+dataLayer = [{
+
+    'pageCategory': 'Product Page',
+    'productGroup': '[-- PRODUCT.Field1 --]',
+    'primaryApplication': '[-- PRODUCT.Field9 --]',
+    'productSku': '[-- PRODUCT.SKU --]',
+    'reviewBucket': '[-- PRODUCT.QuantityOnHand --]',
+    'mountType': '[-- PRODUCT.Field8 --]',
+    'color': '[-- PRODUCT.Field7 --]',
+    'productDefaultPrice': '[-- PRODUCT.Field4 --]',
+    'language': '[-- PRODUCT.Field3 --]',
+}];
+// END Google Data Layer for Ninja Analytics 
+
+    function applyDiscountPrimer(form) {
+        /*if($('#tabs_1 :input:radio:checked').length == 0) {
+            alert("Please select a material type found inside the tabs above.")
+            return false
+        }*/
+        $('#tabs_1 :input:radio:checked').click();
+    }
+
+    function applyDiscount(form) {
+        var selected = false;
+        var price;
+        var inputs = form.getElementsByTagName("input")
+
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].name == "[-- PRODUCT.RECORDNUMBER --]:finopt:0") {
+                if (inputs[i].checked == true) {
+                    selected = true;
+                    //console.log();
+                    break;
+                }
+            }
+        }
+
+        /*if(selected == false){
+            alert("Please select a material type found inside the tabs above.")
+            return false
+        }*/
+
+        var qnty = document.getElementById("qnty").value
+        price = parseFloat(document.getElementById("price").value.substring(1)); //0.7;
+        var origPrice = price;
+        [--IF PRODUCT.Field5 "PRICE-GRP1"--]
+        if (qnty >= 100) {
+            price = price * .7;
+        } else if (qnty >= 50) {
+            price = price * .75;
+        } else if (qnty >= 25) {
+            price = price * .9;
+        } else if (qnty >= 10) {
+            price = price * .95;
+        }
+        [--END_IF--]
+        [--IF PRODUCT.Field5 "PRICE-GRP2"--]
+        if (qnty >= 100) {
+            price = price * .85;
+        } else if (qnty >= 50) {
+            price = price * .9;
+        } else if (qnty >= 10) {
+            price = price * .95;
+        }
+        [--END_IF--]
+
+
+        document.getElementById("price").value = "$" + price.toFixed(2);
+        document.getElementById("qbtPriceEachDiv").innerHTML = "<b>Price Each: &nbsp" + "$" + price.toFixed(2) + "</b>";
+        var total = price * qnty;
+        document.getElementById("qbtTotalPriceDiv").innerHTML = "<b>Total:&nbsp $" + total.toFixed(2) + "</b>";
+
+
+        if (document.getElementById("freeoptstart")) {
+            document.getElementById("freeopt").value = document.getElementById("freeoptstart").value + " " + document.getElementById("freeoptinput").value;
+        }
+
+
+        var savings = (origPrice - price) * qnty;
+        if (savings > 0) {
+            $('#qbtSavingsSpan').show().html('Total Savings: $' + savings.toFixed(2));
+        } else {
+            $('#qbtSavingsSpan').hide();
+        }
+
+        /*document.getElementById("price").value = "$" + price.toFixed(2);
+        document.getElementById("bulk-price-each").innerHTML="$" + price.toFixed(2);
+        var total=price*qnty;
+        document.getElementById("bulk-price-total").innerHTML="$" + total.toFixed(2);
+        if(document.getElementById("freeoptstart")){
+            document.getElementById("freeopt").value = document.getElementById("freeoptstart").value + " " + document.getElementById("freeoptinput").value;
+        }
+        var savings=(origPrice-price)*qnty;
+        if (savings>0) {
+            $('#bulk-price-savings').show().html('Total Savings: $'+savings.toFixed(2));
+        } else {
+            $('#bulk-price-savings').hide();
+        }
+        */
+        // QBIT PRODUCTS CODE
+        if (typeof universal_variable != "undefined") {
+            universal_variable.product.unit_price = parseFloat(origPrice);
+            universal_variable.product.unit_sale_price = parseFloat(price.toFixed(2));
+            universal_variable.product.size = $(':input[name$=":finopt:0"]:checked:first').val();
+        }
+    }
+  
+     <!-- BEGIN QBIT PRODUCTS CODE -->
+  
+    var cookie = "";
+    if (document.cookie.match(/ss_cart_\d+=([^;]*)/)) {
+        cookie = unescape(RegExp.$1)
+    }
+    var basket = {};
+    if (cookie) {
+        var parts = cookie.split('|');
+        parts.shift();
+        var lineCnt = (parts.shift().split(':'))[1];
+        var qntyTotal = (parts.shift().split(':'))[1];
+        var subTotal = (parts.shift().split(':'))[1];
+        var line_items = new Array();
+        while (parts.length > 0) {
+            var tmp = parts.shift();
+            var lineParts = tmp.split(':');
+            line_items.push({
+                "product": lineParts[2],
+                "quantity": lineParts[0],
+                "subtotal": lineParts[1]
+            });
+        }
+        basket = {
+            "currency": "USD",
+            "subtotal": parseFloat(subTotal.replace(/[^0-9\.]/g, "")),
+            "subtotal_include_tax": false,
+            "line_items": line_items
+        }
+    }
+    window.universal_variable = {
+        "version": "1.2.1",
+        "product": {
+            "id": dataLayer[0].productSku,
+            "url": '[-- IMAGE PRODUCT.Graphic JS_ENCODE --]',
+            "name": '[-- PRODUCT.Name JS_ENCODE --]',
+            "category": dataLayer[0].productGroup,
+            "subcategory": dataLayer[0].productGroup,
+            "currency": "USD",
+            "unit_sale_price": dataLayer[0].productDefaultPrice,
+            "unit_price": dataLayer[0].productDefaultPrice,
+            "sku_code": dataLayer[0].productSku,
+            "color": dataLayer[0].color,
+            "size": '[-- PRODUCT.Field11 JS_ENCODE --]',
+            "mount_type": dataLayer[0].mountType,
+            "language": dataLayer[0].language,
+            "primary_application": dataLayer[0].primaryApplication,
+            "basket": basket
+        }
+    }
+    window.uv_listener = window.uv_listener || [];
+    window.uv_listener.push(["on", "change", function() {
+        window._qtd = window._qtd || [];
+        window._qtd.push({
+            resendUniversalVariables: 1
+        });
+Graphic    }]);
+    window.onload = function() {
+        for (i = 0; i < dataLayer.length; i++) {
+            if (typeof dataLayer[i].Visitor != "undefined") {
+                universal_variable.user = {
+                    "user_id": dataLayer[i].Visitor,
+                    "first_visit_date": dataLayer[i].firstVisitDate
+                };
+                break;
+            };
+        };
+        universal_variable.product.size = $(':input[name$=":finopt:0"]:checked:first').val();
+
+    };
+    </script>

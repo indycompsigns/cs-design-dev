@@ -1,0 +1,52 @@
+#tabs ul li#rev span {
+  background-image: url("http://www.compliancesigns.com/media/reviews.gif");
+  width: 161px;
+}
+
+ul.pr-attribute-value-list,
+ul.pr-other-attributes-list,
+.pr-other-attributes-list li ul,
+ul.pr-ratings-histogram-content {
+  background: none !important;
+  margin-bottom: 0px;
+  margin-bottom: 150px;
+}
+
+.footer_link_1 a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.footer_link_1 a:hover {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #cc0000;
+  text-decoration: none;
+}
+
+/*.footer_link_1 a:visited {
+font-family:Arial, Helvetica, sans-serif; font-size:11px;
+color:#999999;
+text-decoration:none;
+}*/
+.footer_link_2 a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #005E9C;
+  text-decoration: none;
+}
+
+.footer_link_2 a:hover {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #cc0000;
+  text-decoration: none;
+}
+
+/*.footer_link_2 a:visited {
+font-family:Arial, Helvetica, sans-serif; font-size:12px;
+color:#999999;
+text-decoration:none;
+}*/

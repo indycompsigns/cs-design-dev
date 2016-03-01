@@ -1,0 +1,289 @@
+.cs-main.cs-pp-template {
+    margin-top: $sticky-shrinking-navbar-height;
+    overflow: hidden;
+    background-color: #ffffff;
+    position:relative;
+    .cs-pp-leftWorkArea {
+        padding: 0 10px 20px 20px;
+        .cs-pp-slider-wrapper {
+            width: 380px;
+            padding: 0 20px;
+            float: left;
+        }
+        .cs-pp-info {
+            .moreinfo-td1 {
+                text-align: center; //centers the image
+                img {
+                    //text-align:center;  //centers the image
+                    // max-width: 300px;
+                }
+                + .moreinfo-td1 {
+                    padding: 0 20px;
+                }
+            }
+        }
+        .cs-information-block {
+            margin-top: 20px;
+        }
+        .cs-product-details {
+            margin-top: 20px;
+            padding: 8px;
+            float: left;
+            div > div {
+                margin-top: 10px;
+            }
+            dt {
+                text-transform: capitalize;
+                color: $green;
+                font-size: $font-size-base;
+                font-weight: $bold;
+                @include font-condensed;
+                display: block;
+            }
+            dd {
+                text-transform: inherit;
+                color: $dark-grey-text;
+                font-size: $font-size-base - 2;
+                font-weight: $normal;
+                @include font-condensed;
+                display: block;
+                padding: 0;
+            }
+            span {
+                font-size: 17px;
+                padding-left: 20px;
+            }
+            a span.glyphicon {
+                color: $green;
+                &:hover {
+                    color: darken($green, 15%);
+                }
+            }
+        }
+    }
+    .cs-product-description {
+        @include font-condensed;
+        font-size: $font-size-base - 2;
+        line-height: $font-size-base - 1;
+        padding: 10px 10px 10px 16px;
+        blockquote {
+            border-left: none;
+            padding: 5px 20px 0px 10px;
+        }
+        b {
+            @include font-condensed;
+            font-size: $font-size-base - 2;
+            line-height: $font-size-base - 1;
+            margin: 5px 20px 0px 0px;
+            padding: 0;
+            display: block;
+        }
+        p > b {
+            display: inline;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .cs-pp-rightWorkArea {
+        float: left;
+        padding: 20px 30px 20px 10px;
+    }
+    p.disclaimer-small {
+        padding-left: 40px;
+    }
+    .cs-add-to-cart {
+        overflow: hidden; //this forces the box to contain the children (green OMT background)
+        .form-group {
+            &.qty-td2 {
+                width: 50px;
+                display: inline-block;
+                padding-left: 5px;
+                padding-bottom: 0;
+                margin-bottom: 0;
+                position: relative;
+                top: -4px;
+                input {
+                    padding: 0 6px;
+                    height: 30px;
+                }
+                input[type=text] {
+                    font-weight: $bold;
+                    @include font-condensed;
+                    border-radius: 0;
+                }
+            }
+            input.form-control {}
+        }
+    }
+    div#qbtQttyInnerTable {
+        padding: 0 20px;
+        div:first-of-type,
+        div + div + div {
+            padding: 0;
+            div {
+                padding-left: 5px;
+            }
+        }
+    }
+    .cs-calculate-discount {
+        margin: 0px 0 0 60px;
+        position: relative;
+        top: -3px;
+        a {
+            font-size: $font-size-base - 4;
+            @include font-condensed;
+            text-decoration: underline;
+            font-weight: $normal;
+            color: $light-grey-text;
+            &:hover {
+                color: $orange;
+            }
+        }
+    }
+    /* Add to cart labels for Price Each and Total Savings */
+    .cs-label-sm-orange {
+        font-size: $font-size-base - 2;
+        @include font-condensed;
+        text-decoration: underline;
+        font-weight: $bold;
+        color: $orange;
+        width: 40%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        vertical-align: top;
+    }
+    label#qbtPriceEachDiv {}
+    /* Trust Pilot Widget  */
+    div#qbtSavingsYou {
+        float: left;
+        color: $orange;
+        font-size: $font-size-base + 3;
+        display: inline-block;
+        border: 1px solid $orange;
+        padding: 8px;
+        font-weight: $bold;
+        text-align: center;
+        margin-right: 40px;
+    }
+    .trustpilot-widget {
+        padding-top: 20px;
+        height: 40px;
+    }
+    .cs-volume-discount {
+        padding: 30px 0 20px 0;
+        p.disclaimer-small {
+            padding-left: 10px;
+            margin-top: -5px;
+        }
+        #cs-volume-purchasing-1 {
+            min-width: 320px;
+        }
+        #cs-volume-purchasing-2 {
+            min-width: 250px;
+        }
+        #cs-volume-purchasing-1,
+        #cs-volume-purchasing-2 {
+            margin: 0 10px 10px 10px;
+            border: none;
+            float: left;
+            th {
+                color: $dark-grey-text;
+                @include font-condensed;
+                font-size: $font-size-base;
+                padding-right: 0px;
+                background: $lightest-green;
+                border: none;
+                text-align: center;
+            }
+            td {
+                color: $dark-grey-text;
+                @include font-condensed;
+                font-size: $font-size-base;
+                padding: 4px 2px;
+                text-align: center;
+                &.selected {
+                    color: $near-black;
+                    font-weight: $bold;
+                    font-size: $font-size-base + 1;
+                }
+                &:first-child {
+                    font-weight: $bold;
+                }
+            }
+        }
+    }
+    //Read Customer Reviews, Product Template
+    .cs-customer-reviews {
+        margin-bottom: 20px;
+        .cs-customer-review-stars {
+            display: inline-block;
+            padding-left: 8px;
+            span.glyphicon.glyphicon-star {
+                height: 18px;
+                width: 18px;
+                border-radius: 18px;
+                border: 1px solid orange;
+                padding: 3px;
+                color: orange;
+            }
+            &.disabled {
+                color: $light-grey-text;
+            }
+        }
+        .cs-customer-review-stars-ratings {
+            display: inline-block;
+            span {
+                margin-left: 20px;
+                @include font-normal;
+                font-size: $font-size-base - 1;
+                color: $near-black;
+                font-weight: $bold;
+            }
+        }
+        h3.cs-customer-review-healine {
+            padding-left: 8px;
+            @include font-normal;
+            color: $near-black;
+            font-size: $font-size-base + 2;
+        }
+        blockquote {
+            border-left: none;
+            padding: 5px 20px 0px 10px;
+            @include font-normal;
+            font-size: $font-size-base - 1;
+            margin-bottom: 10px;
+        }
+        p {
+            &.cs-customer-review-author {
+                padding-left: 8px;
+                margin: 0;
+                font-size: $font-size-base - 4;
+            }
+            &.cs-customer-review-origin {
+                padding-left: 8px;
+                margin: 0;
+                span {
+                    font-size: $font-size-base - 4;
+                }
+            }
+        }
+    }
+}
+
+.moreinfo-td2 {
+    vertical-align: top;
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+.productinfo {
+    padding: 0 0 6px 0;
+}
+.cs-soc-med {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    margin: -20px 0 0 0;
+  
+}

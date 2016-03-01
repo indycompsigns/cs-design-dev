@@ -1,0 +1,239 @@
+/* remove "display:table-cell;height:100%;" if you need menu to flow with content*/
+/*.wpMenu {display:table-cell;height:100%;} */
+.wpMenu {display:block;float:left;position:relative;width:100%;}
+.wpMenu UL {list-style:none;padding:0;margin:0;float:left;}
+.wpMenu LI UL,.wpMenu .wpSubMenu {position:absolute;visibility:hidden;}
+.wpMenu LI ul a,.wpMenu LI UL LI,.wpMenu LI A{float:none;}
+.wpMenu A,.wpMenu LI{display:block;position:relative;}
+.wpMenu .wpCornRel{position:relative;padding:0 !important;}
+.wpMenu LI:hover>UL {display:block;visibility:visible}
+.wpMenu LI:hover{}
+.wpMenu LI UL {top:0;left:100%;}
+.wpMenu .hMenu>LI{float:left; }
+.wpMenu .hMenu UL {top:100%;left:0;}
+.wpMenu .hMenu LI UL UL {top:0;left:100%;}
+.wpMenu .wpSubMenu.hMenu DIV{float:left;}
+.wpMenu .wpMainMenu .mainItems{display:-moz-inline-stack;display:inline-block;zoom:1;*display:inline;white-space:nowrap !important;vertical-align:middle; }
+/*.wpMenu .wpMainMenu .mainItems{float:left !important;display:block !important;white-space:nowrap !important;}*/
+
+
+
+/* Main Menu*/
+.wpMenu{
+	width:972px;
+}
+.wpMenu UL, .wpMenu .wpMainMenu{
+	/*background:#407b5f;*/
+	background:url(MenuGradient-FINAL.gif) repeat-x;
+	/*border:2px solid #31684d;*/
+}
+.wpMenu  UL UL LI, .wpMenu .wpMainMenu .menuItem{
+	
+}
+.wpMenu UL LI A, .wpMenu .wpMainMenu A {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-decoration:none;
+	font-weight:bold;
+	color:#fff;
+	white-space:nowrap;
+	text-transform:capitalize;
+	/*padding:6px 1px 6px 2px;*/
+	/*border:1px solid #407b5f;*/
+	line-height:30px;
+	padding:0px 9px 0px 10px;
+	
+}
+
+.wpMenu UL LI A UL LI A {
+	line-height:15px;
+	
+	}
+
+.wpMenu .wpMainMenu A:hover, .wpMenu .wpMainMenu .activeItem A {
+	color:#fff;
+	background:#f48e1f;
+	/*border:1px solid #ffd445;*/
+	
+}
+
+/* Main Menu*/
+
+
+
+
+
+
+
+.wpMenu .menuCloseButton{ 
+font-size:12px !important; 
+position:absolute !important; 
+bottom:0 !important; 
+right:0 !important; 
+} 
+
+
+
+
+
+
+/* Sub Menu */
+.wpMenu UL UL, .wpMenu .wpSubMenu{
+	border:1px solid #999;
+	padding:20px;
+	width:auto !important;
+	background:#fff !important;
+	margin-top:-1px;
+
+}
+.wpMenu  UL UL LI, .wpMenu .wpSubMenu .menuItem{	
+}
+.wpMenu  UL UL A, .wpMenu .wpSubMenu A{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	text-decoration:none;
+	font-weight:bold;
+	line-height:15px;
+	color:#000 !important;
+	font-weight:normal !important;
+	padding:3px !important;
+	border:0 !important;
+}
+.wpMenu UL UL A:hover, .wpMenu .wpSubMenu A:hover, .wpMenu .wpSubMenu .activeItem{
+	color:#000 !important;
+	font-weight:normal !important;
+	border:0 !important;
+	background:#cae0c9;
+	line-height:15px;
+}
+/* Sub Menu */
+
+
+
+/* Mega Menu */
+.wpMenu .wpMegaMenu{
+	border:1px solid #999;
+	width:auto !important;
+/*	background:#fff;	
+*/	left:1px !important;
+	/*width:927px !important;*/
+	/* BEGIN EDITS BY WEBTEACHER */
+	margin-top: 0px !important;
+	top: 58px !important;
+	width:926px !important; padding-bottom:50px !important;
+	background:#fff url(/new_csigns_anim2010/webplugs-menu/nav_bg_bottom.jpg) left bottom repeat-x !important; 
+	/* END EDITS */
+	
+}
+
+.wpMenu .wpMegaMenu ul{
+	background:transparent !important;
+	border:0;
+}
+
+.wpMenu .wpMegaMenu div{
+
+	font-size:0;
+}
+
+
+.wpMenu .wpMegaMenu table{
+	padding:0;	
+	margin:0;
+	/*border:0;*/
+}
+
+.wpMenu .wpMegaMenu td{
+	vertical-align:top;	
+	font-size:0px;
+	padding-right:10px;
+}
+
+.wpMenu .wpMegaMenu a{
+	color:#000 !important;
+	font-weight:normal !important;
+	padding:3px !important;
+	border:0 !important;
+}
+
+.wpMenu .wpMegaMenu a:hover{
+	color:#000 !important;
+	font-weight:normal !important;
+	border:0 !important;
+	background:#cae0c9;
+	/*text-decoration:underline !important;*/
+}
+
+
+
+.wpMenu .wpMegaMenu .wpMenuMegaHeading{
+	font-size:13px;
+	font-family:Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	font-weight:bold;
+	border-bottom-width:1px;
+	border-bottom-style:solid;
+	border-bottom-color:#d7d7d7;
+	padding-top:10px;
+	padding-bottom:5px;
+	margin:5px !important;;
+
+}
+
+.wpMenu .wpMegaMenu .wpMenuMegaHeading A{
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	font-weight:bold !important; color:#266b57!important;
+}
+.wpMenu .wpMegaMenu .wpMenuMegaHeading A:hover{
+	color:#195544!important;background:#cae0c9!important;
+}
+/* Mega Menu */
+
+
+
+
+
+
+
+/* Separators */
+.wpMenu .hMenu .separator{
+	/*background:#fff;*/
+	background:url(separator-bg.gif) no-repeat;
+	height:30px;
+	width:5px;
+	overflow:hidden;
+	/*margin:2px 2px 2px 2px;*/
+}
+.wpMenu .separator{
+	background:red;
+	height:1px;
+	display:block;
+	overflow:hidden;
+	/*margin:2px 2px 2px 2px;*/
+}
+/* Separators */
+
+
+
+
+/*Sub Image*/
+.wpMenu .parentItem A{
+/*background-image: url(arrow2.gif) !important;*/
+	background-repeat:no-repeat !important;
+	background-position:100% !important;
+	/*padding-right:17px !important;-->*/
+	
+}
+/*Over Sub Image*/
+.wpMenu .parentItem A:hover, .wpMenu .activeItem A{
+	/*background-image: url(white_arrow.gif) !important;*/
+	background-repeat:no-repeat !important;
+	background-position:100% !important;
+	/*padding-right:17px !important;*/
+	
+}
+
+
+.border_r{ border-right:1px solid #cacaca !important; padding-right:10px !important; margin-right:10px !important;}

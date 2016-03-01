@@ -1,0 +1,62 @@
+.modal {
+    z-index: map-get($zindex, modal);
+    .modal-header {
+        border-bottom: 1px solid $dark-green;
+        margin: 15px 20px;
+        padding: 0;
+        button {
+            z-index: map-get($zindex, modal-responsive-button);
+        }
+        &.cs-no-header {
+            border: none;
+            h2 {
+                display: inline;
+                display: none;
+            }
+            + img.img-responsive {
+                z-index: map-get($zindex, modal-responsive-img);
+                display: inline-block;
+                border-top: 1px solid rgba(0, 0, 0, 0.2);
+                border-bottom: none;
+                border-left: 1px solid rgba(0, 0, 0, 0.2);
+                border-right: 1px solid rgba(0, 0, 0, 0.2);
+                border-radius: 6px;
+                background-clip: padding-box;
+                outline: 0;
+                margin-top: -54px;
+            }
+        }
+    }
+    .modal-dialog {
+        padding: 15px 5px 30px 5px;
+    }
+    .modal-footer {
+        border-top: 1px solid $dark-green;
+        margin: 0 20px;
+    }
+    h2 {
+        font-size: 22px;
+        font-weight: bold;
+        font-family: 'Roboto Condensed', sans-serif;
+        padding: 0;
+        color: $dark-green;
+        text-decoration: none;
+        line-height: 28px;
+        padding-bottom: 5px;
+    }
+}
+
+button.close span {
+    z-index: map-get($zindex, modal-close-x-button-top);
+    border: 2px solid black;
+    border-radius: 14px;
+    width: 26px;
+    height: 26px;
+    padding: 0px;
+    display: inline-block;
+    position: relative;
+    background: black;
+    color: white;
+    vertical-align: text-top;
+    @include box-shadow;
+}

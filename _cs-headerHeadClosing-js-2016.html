@@ -1,0 +1,105 @@
+
+<script type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script> -->
+<script type="text/javascript" src="http://www.compliancesigns.com/media/en-US/javascript/mdetect.js"></script>
+<!-- <script src="/new_csigns_anim2010/webplugs-menu/webplugs/webplugs.js" type="text/javascript"></script> -->
+<!-- ie 8 support - needs respond.js for media queries to work - run after all the css, but closest to top of page as possible -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<!-- END QBIT PRODUCTS CODE -->
+<!-- QUBIT OpenTag BEGIN -->
+<!-- temporarily OpenTag is off for troubleshooting  -->
+<!-- <script src='//d3c3cq33003psk.cloudfront.net/opentag-112693-1495451.js' async defer></script>  -->
+<!-- QUBIT OpenTag END -->
+<!-- BEGIN Google Data Layer for Ninja Analytics -->
+<script language="JavaScript" type="text/javascript">
+dataLayer = [{
+
+    'pageCategory': 'Product Page',
+    'productGroup': '[-- PRODUCT.Field1 --]',
+    'primaryApplication': '[-- PRODUCT.Field9 --]',
+    'productSku': '[-- PRODUCT.SKU --]',
+    'reviewBucket': '[-- PRODUCT.QuantityOnHand --]',
+    'mountType': '[-- PRODUCT.Field8 --]',
+    'color': '[-- PRODUCT.Field7 --]',
+    'productDefaultPrice': '[-- PRODUCT.Field4 --]',
+    'language': '[-- PRODUCT.Field3 --]',
+}];
+// END Google Data Layer for Ninja Analytics 
+
+
+<!-- BEGIN QBIT PRODUCTS CODE -->
+
+var cookie = "";
+if (document.cookie.match(/ss_cart_\d+=([^;]*)/)) {
+    cookie = unescape(RegExp.$1)
+}
+var basket = {};
+if (cookie) {
+    var parts = cookie.split('|');
+    parts.shift();
+    var lineCnt = (parts.shift().split(':'))[1];
+    var qntyTotal = (parts.shift().split(':'))[1];
+    var subTotal = (parts.shift().split(':'))[1];
+    var line_items = new Array();
+    while (parts.length > 0) {
+        var tmp = parts.shift();
+        var lineParts = tmp.split(':');
+        line_items.push({
+            "product": lineParts[2],
+            "quantity": lineParts[0],
+            "subtotal": lineParts[1]
+        });
+    }
+    basket = {
+        "currency": "USD",
+        "subtotal": parseFloat(subTotal.replace(/[^0-9\.]/g, "")),
+        "subtotal_include_tax": false,
+        "line_items": line_items
+    }
+}
+window.universal_variable = {
+    "version": "1.2.1",
+    "product": {
+        "id": dataLayer[0].productSku,
+        "url": '[-- IMAGE PRODUCT.Graphic JS_ENCODE --]',
+        "name": '[-- PRODUCT.Name JS_ENCODE --]',
+        "category": dataLayer[0].productGroup,
+        "subcategory": dataLayer[0].productGroup,
+        "currency": "USD",
+        "unit_sale_price": dataLayer[0].productDefaultPrice,
+        "unit_price": dataLayer[0].productDefaultPrice,
+        "sku_code": dataLayer[0].productSku,
+        "color": dataLayer[0].color,
+        "size": '[-- PRODUCT.Field11 JS_ENCODE --]',
+        "mount_type": dataLayer[0].mountType,
+        "language": dataLayer[0].language,
+        "primary_application": dataLayer[0].primaryApplication,
+        "basket": basket
+    }
+}
+window.uv_listener = window.uv_listener || [];
+window.uv_listener.push(["on", "change", function() {
+    window._qtd = window._qtd || [];
+    window._qtd.push({
+        resendUniversalVariables: 1
+    });
+    Graphic
+}]);
+window.onload = function() {
+    for (i = 0; i < dataLayer.length; i++) {
+        if (typeof dataLayer[i].Visitor != "undefined") {
+            universal_variable.user = {
+                "user_id": dataLayer[i].Visitor,
+                "first_visit_date": dataLayer[i].firstVisitDate
+            };
+            break;
+        };
+    };
+    universal_variable.product.size = $(':input[name$=":finopt:0"]:checked:first').val();
+
+};
+</script>

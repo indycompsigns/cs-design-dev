@@ -1,0 +1,94 @@
+$bold: bold;
+$normal: 14px;
+$font-size-base: $normal; //bootstrap variable
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot');
+    src: url('../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+
+/* ---------------- Street Sign Generator - labels for Controls ---------------- */
+
+@mixin font-condensed {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+@mixin font-normal {
+    font-family: 'Roboto', sans-serif;
+}
+
+@mixin font-arial {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body,
+.cs-main {
+    a,
+    p,
+    div {
+        @include font-normal;
+        font-size: $font-size-base - 2;
+    }
+}
+
+.cs-main {
+    margin: 0;
+    padding: 0;
+    p.disclaimer-small {
+        color: $lightest-grey-text;
+        font-size: 9px;
+    }
+    label.cs-label-xl {
+        color: $green;
+        @include font-condensed;
+        font-size: $font-size-base + 10;
+        margin-bottom: 0;
+        padding-top: 8px;
+    }
+    h1 {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: 'Roboto Condensed', sans-serif;
+        padding: 20px 8px 4px 8px;
+        margin: 0;
+        text-decoration: none;
+        color: $grey;
+    }
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: 'Roboto Condensed', sans-serif;
+        margin: 0px 8px 8px 8px;
+        color: $dark-green;
+        text-decoration: none;
+        line-height: 28px;
+        background: #fff;
+        padding: 10px 15px 10px 10px;
+        margin: -123px 0px 12px 0px;
+        display: inline-block;
+    }
+    h3 {
+        font-size: 15px;
+        font-weight: medium;
+        font-family: 'Roboto Condensed', sans-serif;
+        color: $dark-green;
+        text-decoration: none;
+    }
+    .line-header {
+        border-top: 1px solid $green;
+        margin-top: 20px;
+        padding-bottom: 5px;
+    }
+}
+
+
+/*  Icons   */
+
+span.icon {
+    font-family: 'Glyphicons Halflings';
+}
+
+.dropdown_arrow a::after {
+    font-family: 'Glyphicons Halflings';
+}

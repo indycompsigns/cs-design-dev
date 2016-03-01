@@ -1,0 +1,161 @@
+/* ---------------- Header Classes ---------------- */
+
+$sticky-shrinking-navbar-height: 132px;
+//$cs-constrain-width: 983px;
+@mixin topmenu-015 {
+    @include font-normal;
+    font-size: font-normal-size - 1;
+    color: $blue;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+
+/* static/fixed version of the navbar for review */
+
+.shrinking-header {
+    background: transparent;
+    /* animation magic */
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    z-index: map-get($zindex, shrinking-header);
+    top: 0;
+    //position: fixed;  //leaving this breaks the center alignment
+    margin-top: 4px; //any margin here leaves a gap
+}
+
+.nav.cs-fixed-navbar {
+    font-size: 30px;
+    text-indent: 40px;
+    
+    font-weight: bold;
+}
+
+.shrink {
+    padding: 0px 0;
+    margin-top: -10px;
+    margin-bottom: 0;
+    height: 65px;
+    margin-top: 0px;
+}
+
+.cs-fixed-navbar {
+    .cs-navbar-constrain {
+        >div {
+            padding:0;
+        }
+        background: #ffffff;
+        padding-right: 5px;
+        position: relative;
+        background: #ffffff;
+        height: $sticky-shrinking-navbar-height;
+        img.cs-logo {
+            z-index: -1;
+        }
+        //Goldstar, Inc5000 Made in USA image in header
+        .cs-standards-icons {
+            padding: 0 0 3px 0;
+            img{
+                max-width: 284px;
+            }   
+        }
+    }
+    //moves the whole thing down inside its white container
+    ul.nav.navbar-nav {
+        padding-top: 10px;
+        padding-bottom: 0;
+        height: 36px;
+    }
+    .navbar-nav>li {
+        display: inline-block; //sets up ability to stick in | divider images in a row
+    }
+    .navbar-nav>li {
+        &.cs-email {
+            padding-bottom: 0;
+        }
+        &>a {
+            text-decoration: none;
+            background-color: transparent;
+            color: darken($blue, 25%);
+            @include topmenu-015;
+            padding-top: 4px;
+            display: inline-block; //sets up ability to stick in | divider images in a row
+            padding-right: 12px;
+            padding-left: 12px;
+            padding-bottom: 4px;
+        }
+    }
+    .navbar-nav>li>a:focus,
+    .navbar-nav>li>a:hover {
+        text-decoration: none;
+        background-color: transparent;
+        color: darken($blue, 25%);
+        @include topmenu-015;
+        &:hover {
+            text-decoration: underline;
+        }
+        img {
+            display: inline-block;
+            height: 9px;
+            width: 1px;
+        }
+    }
+    //fixes the Email Us image positioning (moved up)
+    li.cs-email a img {
+        margin-top: -21px;
+    }
+    // .nav > li > a > img {
+    // }
+    .cs-no-link,
+    .cs-no-link a,
+    .cs-no-link:hover,
+    .cs-no-link a:hover,
+    a.cs-phone.mailtToSupport,
+    .nav > li > a.cs-phone:hover {
+        cursor: default;
+        text-decoration: none;
+        color: $blue;
+        font-weight: $bold;
+        font-size: $normal;
+    }
+    .cs-no-link:first-child {
+        font-weight: normal;
+        font-size: $normal - 2;
+    }
+    .cs-phone {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .cs-phone-label {
+        a {}
+    }
+    .cs-email,
+    .cs-email a {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .cs-cart,
+    .cs-cart:hover {
+        text-align: -9999px;
+        font-size: .01px;
+        // padding-top: 20px;
+    }
+    li.cs-miniCart {
+        display: inline-block;
+        padding: 4px 15px 0 15px;
+        &:hover {
+            text-decoration: underline;
+        }
+        a.cs-cart {
+            //display: inline;
+            display: none;
+        }
+    }
+    a.MiniCart {
+        font-weight: $bold;
+        font-size: 9px;
+    }
+}

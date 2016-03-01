@@ -1,0 +1,72 @@
+/* ---------------- Search Bar inside Header ---------------- */
+
+.cs-flexbox-container {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+}
+
+.cs-flexbox-child {
+    flex-grow: 1;
+    flex-basis: auto;
+}
+
+.cs-search-orange {
+    border-radius: 4px;
+    height: 47px;
+    background: white;
+    border: 3px solid $orange;
+    flex-grow: 9;
+    form {
+        input#sli_search_1 {
+            width: calc(100% - 170px);
+            height: 38px;
+            border: 0;
+            padding: 10px;
+            font-size: $font-size-base;
+        }
+        input.cs-search-btn {
+            width: 169px;
+            height: 39px;
+            background: $blue;
+            font-size: 15px;
+            border-radius: 4px;
+            border: none;
+            position: relative;
+            top: 1px;
+            right: 1px;
+            &:hover {
+                background-color: darken( $blue, 15%);
+                background-color: $orange;
+            }
+        }
+    }
+}
+
+.cs-create-custom-btn {
+    max-width: 154px;
+    height: 46px;
+    background-color: $slate-blue;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 5px;
+    flex-grow: 1;
+    a h3 {
+        color: #ffffff;
+        float: left;
+        padding: 6px 11px;
+        margin: 0;
+        font-weight: normal;
+        line-height: 17px;
+        font-size: $font-size-base;
+        @include font-normal;
+        border-radius: 4px;
+        &:hover {
+            background-color: $blue;
+        }
+    }
+}

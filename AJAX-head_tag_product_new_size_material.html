@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>[-- PRODUCT.Field40 --]</title>
+
+<meta name="description" content="[-- PRODUCT.MoreInformationMetaDescription --]">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="Author" CONTENT="www.ComplianceSigns.com">
+<META NAME="Owner" CONTENT="(C) 2013 - 2015 ComplianceSigns, Inc. - All Rights Reserved">
+<META NAME="robots" content="All">
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta itemprop="itemCondition" content="http://schema.org/NewCondition" />
+
+<link rel="alternate" type="application/rss+xml" title="ROR" href="ror.xml" />
+<link href="/css/csigns.css" rel="stylesheet" type="text/css">
+<link rel="canonical" href="http://www.compliancesigns.com/[-- PRODUCT.MoreInformationFileName --]" />
+<link href="/media/new_csigns_images_10-19-09/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/magicscroll/magicscroll.css"/>
+<link rel="stylesheet" href="/media/css/jquery.fancybox.css" />
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="/js/minicart.js"></script>
+<script type="text/javascript" src="/js/colorselector.js"></script>
+<script type="text/javascript" src="/js/pausescroller.js"></script>
+<script type="text/javascript" src="/js/jquery-cookie.js"></script>
+<!--<script type="text/javascript" src="/js/fancybox.js"></script>-->
+<script type="text/javascript" src="/js/jquery.fancybox.js"></script>
+<script type="text/javascript" src="/js/csigns-sub-inline-scripts.js"></script>
+<script src="/magicscroll/magicscroll.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/history-tracking.js"></script>
+
+
+<!-- BEGIN Google Data Layer for Ninja Analytics -->
+<script>
+dataLayer = [{
+
+ 'pageCategory': 'Product Page',
+ 'productGroup': '[-- PRODUCT.Field1 --]',
+ 'primaryApplication': '[-- PRODUCT.Field9 --]',
+ 'productSku': '[-- PRODUCT.SKU --]',
+ 'reviewBucket': '[-- PRODUCT.QuantityOnHand --]',
+ 'mountType': '[-- PRODUCT.Field8 --]',
+ 'color': '[-- PRODUCT.Field7 --]',
+ 'productDefaultPrice': '[-- PRODUCT.Field4 --]',
+ 'language': '[-- PRODUCT.Field3 --]',
+}];
+</script>
+<!-- END Google Data Layer for Ninja Analytics -->
+
+<script language="JavaScript" type="text/javascript">
+	function applyDiscountPrimer(form) {
+		/*if($('#tabs_1 :input:radio:checked').length == 0) {
+			alert("Please select a material type found inside the tabs above.")
+			return false
+		}*/
+		$('#tabs_1 :input:radio:checked').click();
+	}
+
+	function applyDiscount(form){
+		var selected = false;
+		var price;
+		var inputs = form.getElementsByTagName("input")
+		    		
+		for(var i = 0; i < inputs.length; i++){
+			if(inputs[i].name == "[-- PRODUCT.RECORDNUMBER --]:finopt:0"){
+				if(inputs[i].checked == true){
+					selected = true;
+					//console.log();
+					break;
+				}
+			}
+		}
+		
+		/*if(selected == false){
+			alert("Please select a material type found inside the tabs above.")
+			return false
+		}*/
+		
+		var qnty = document.getElementById("qnty").value
+		price  = parseFloat(document.getElementById("price").value.substring(1));//0.7;
+		var origPrice=price;
+		[-- IF PRODUCT.Field5 "PRICE-GRP1" --]
+		if (qnty>=100) {
+			price=price*.7;
+		} else if (qnty>=50) {
+			price=price*.75;
+		} else if (qnty>=25) {
+			price=price*.9;
+		} else if (qnty>=10) {
+			price=price*.95;
+		}
+		[-- END_IF --]
+		[-- IF PRODUCT.Field5 "PRICE-GRP2" --]
+		 if (qnty>=100) {
+			price=price*.85;
+		} else if (qnty>=50) {
+			price=price*.9;
+		} else if (qnty>=10) {
+			price=price*.95;
+		} 
+		[-- END_IF --]	
+
+
+		document.getElementById("price").value = "$" + price.toFixed(2);
+		document.getElementById("qbtPriceEachDiv").innerHTML= "<b>Price Each: &nbsp" + "$" + price.toFixed(2) + "</b>";
+		var total=price*qnty;
+		document.getElementById("qbtTotalPriceDiv").innerHTML="<b>Total:&nbsp $" + total.toFixed(2) + "</b>";
+
+
+		if(document.getElementById("freeoptstart")){
+			document.getElementById("freeopt").value = document.getElementById("freeoptstart").value + " " + document.getElementById("freeoptinput").value;
+		}
+
+
+		var savings=(origPrice-price)*qnty;
+		if (savings>0) {
+			$('#qbtSavingsSpan').show().html('Total Savings: $'+savings.toFixed(2));
+		} else {
+			$('#qbtSavingsSpan').hide();
+		}
+
+		/*document.getElementById("price").value = "$" + price.toFixed(2);
+		document.getElementById("bulk-price-each").innerHTML="$" + price.toFixed(2);
+		var total=price*qnty;
+		document.getElementById("bulk-price-total").innerHTML="$" + total.toFixed(2);
+		if(document.getElementById("freeoptstart")){
+			document.getElementById("freeopt").value = document.getElementById("freeoptstart").value + " " + document.getElementById("freeoptinput").value;
+		}
+		var savings=(origPrice-price)*qnty;
+		if (savings>0) {
+			$('#bulk-price-savings').show().html('Total Savings: $'+savings.toFixed(2));
+		} else {
+			$('#bulk-price-savings').hide();
+		}
+		*/
+		// QBIT PRODUCTS CODE
+		if (typeof universal_variable != "undefined") {
+			universal_variable.product.unit_price=parseFloat(origPrice);
+			universal_variable.product.unit_sale_price=parseFloat(price.toFixed(2));
+			universal_variable.product.size=$(':input[name$=":finopt:0"]:checked:first').val();
+		}
+	}
+</script>
+
+<!-- BEGIN QBIT PRODUCTS CODE -->
+<script>
+var cookie="";
+if (document.cookie.match(/ss_cart_\d+=([^;]*)/)) {cookie=unescape(RegExp.$1)}
+var basket={};
+if (cookie) {
+	var parts=cookie.split('|');
+	parts.shift();
+	var lineCnt=(parts.shift().split(':'))[1];
+	var qntyTotal=(parts.shift().split(':'))[1];
+	var subTotal=(parts.shift().split(':'))[1];
+	var line_items=new Array();
+	while (parts.length>0) {
+		var tmp=parts.shift();
+		var lineParts=tmp.split(':');
+		line_items.push({
+				"product":lineParts[2],
+				"quantity":lineParts[0],
+				"subtotal":lineParts[1]
+		});
+	}
+	basket={
+		"currency": "USD",
+		"subtotal": parseFloat(subTotal.replace(/[^0-9\.]/g,"")),
+		"subtotal_include_tax": false,
+		"line_items": line_items
+	}
+}
+window.universal_variable = {
+  "version" : "1.2.1",
+  "product": {
+    "id" : dataLayer[0].productSku,
+	"url" : '[-- IMAGE PRODUCT.Graphic JS_ENCODE --]',
+	"name": '[-- PRODUCT.Name JS_ENCODE --]',
+    "category" : dataLayer[0].productGroup,
+    "subcategory": dataLayer[0].productGroup,
+	"currency":"USD",
+	"unit_sale_price":dataLayer[0].productDefaultPrice,
+	"unit_price":dataLayer[0].productDefaultPrice,
+	"sku_code":dataLayer[0].productSku,
+	"color":dataLayer[0].color,
+	"size":'[-- PRODUCT.Field11 JS_ENCODE --]',
+	"mount_type":dataLayer[0].mountType,
+	"language":dataLayer[0].language,
+	"primary_application":dataLayer[0].primaryApplication,
+	"basket":basket
+  }
+}
+window.uv_listener = window.uv_listener || [];
+window.uv_listener.push(["on", "change", function() {
+	window._qtd = window._qtd || [];
+	window._qtd.push({ resendUniversalVariables: 1 });
+}]);
+window.onload=function() {
+	for (i=0;i<dataLayer.length;i++) {
+		if (typeof dataLayer[i].Visitor != "undefined") {
+			universal_variable.user = {
+				"user_id" : dataLayer[i].Visitor,
+				"first_visit_date" : dataLayer[i].firstVisitDate
+			};
+			break;
+		};
+	};
+	universal_variable.product.size=$(':input[name$=":finopt:0"]:checked:first').val();
+
+};
+</script>
+<!-- END QBIT PRODUCTS CODE -->
+
+<!-- QUBIT OpenTag BEGIN -->
+<script src='//d3c3cq33003psk.cloudfront.net/opentag-112693-1495451.js' async defer></script>
+<!-- QUBIT OpenTag END -->
+
+<!-- PowerReviews -->
+<script type="text/javascript" src="http://www.compliancesigns.com/pwr/engine/js/full.js"></script>
+<script type="text/javascript">
+	$(function() {
+		  var $=jQuery;
+		  // set default size option
+		  var defaultoption ="[-- PRODUCT.Field11 --]";
+		  if(!defaultoption.match(/Empty/i)) {
+			var tmp=defaultoption.split(' ');
+			//$("#tabs_1 span:contains('"+tmp[0]+"')").click();
+			/*$("#tabs_1 span").each(function() {
+				var label=$(this).text();
+				var re=new RegExp("^"+tmp[0]+" *$");
+				if (re.test(label)) {$(this).click()}
+			});*/
+			var firstmatch=1;
+			$('.orderopt > tbody > tr > td').each(function() {
+				if ($(this).text().trim()=="[-- PRODUCT.Field11 --]") {
+					if (firstmatch) {
+						
+						/*setTimeout(function() {
+							$(this).prev().find(':radio').click().each(function() {
+								$('#price').val($(this).parent().next().next().text());
+							});
+						}, 1000);*/
+						
+						$(this).prev().find(':radio').click().each(function() {
+							$('#price').val($(this).parent().next().next().text());
+						});
+						var $tabsnameel=$(this).parents('div');
+						var tabsname=$tabsnameel.attr('id');
+						tabsname=tabsname.replace('tab1s','tab1li');
+						$('#'+tabsname).click();
+						//console.log();
+						firstmatch=0;
+						//setTimeout(function() {applyDiscountPrimer(document.mainform);},1000);   //debug nov 27
+					}
+					$(this).css('font-weight','bold').append(' *');
+				}
+			});
+			$('#mostpopular').show();
+		  };
+		  // end default size option
+
+		  // set multi-language option list
+		 var field14="[-- PRODUCT.Field14 --]";  //pull values from field14 into pathname
+		 if ((field14.length)&&(!field14.match(/Empty/i))) {  
+			  var c="";
+			  var pathname=location.pathname;  
+			  pathname=pathname.substring(1,pathname.length);
+			  var items=field14.split('\|');
+			  if (items[0].match(/^portrait *$/i)) {  //if field14 = "portrait" just show the 2 orientation icons
+				items.shift();
+				var imgUrl=$('#multilanguage').parent().find('img:first').attr('src');
+				imgUrl=imgUrl.replace('/300/','/150/');
+				imgUrl=imgUrl.replace('_300.gif','_150.gif');
+				var parts=imgUrl.split('\/');
+				var landscape=parts.pop().replace(/(.*[A-Z][A-Z][A-Z])P(\-[0-9]+.*)/,'$1$2');
+				var portrait=landscape.replace(/(.*[A-Z][A-Z][A-Z]+)(\-[0-9]+.*)/,'$1P$2');
+				var landscapeUrl=pathname.replace(/(.*[A-Z][A-Z][A-Z])P(\-[0-9]+.*)/,'$1$2');
+				var portraitUrl=landscapeUrl.replace(/(.*[A-Z][A-Z][A-Z]+)(\-[0-9]+.*)/,'$1P$2');
+				c+='<div class="orntIcon" data-path="'+portraitUrl+'" id="portrait-icon" style="cursor:pointer;height:100px;float:left;margin-left:15px;margin-right:5px">'+
+					'<img src="'+parts.join('/')+'/'+portrait+'" width=100><br>Portrait</div>';
+				c+='<div class="orntIcon" data-path="'+landscapeUrl+'" id="landscape-icon" style="cursor:pointer;width:100px;float:left;margin-top:9px">'+
+					'<img src="'+parts.join('/')+'/'+landscape+'" width=100><br><span style="position:relative;top:-9px">Landscape</span></div><br style="clear:both">';
+				$('#multilanguage').css('padding-top',37);
+
+			  }
+			  if (items.length) {  
+				var noPortrait=(c.length)?"":" noPortrait";
+				if (noPortrait) {$('#multilanguage').addClass('shorter')};
+				c+=	'<div class="languagelist'+noPortrait+'">Language: <select id="multilanguage_list">';
+				var orientationList="";
+				for (i=0;i<items.length;i++) {
+					var vals=items[i].split(';');
+					var sel="";
+					if (pathname==vals[1]) {sel="SELECTED"}
+					c+=	'<option value="'+vals[1]+'" '+sel+'>'+vals[0]+'</option>\n';
+				}
+
+
+				c+=		'</select></div>';
+			  }
+			  if (c) {
+					$('#multilanguage').show();
+					var volposition = $('.block2').offset(); // position = { left: 42, top: 567 }
+					var cellposition=$('#multilanguage').parent().offset();
+					var prodimageheight=$('#multilanguage').parent().find('img:first').attr('height');
+					var imageposition=$('#multilanguage').parent().find('img:first').offset();
+					if ((c.match(/multilanguage_list/))&&(field14.match(/^portrait/i))) {$('#multilanguage').addClass('taller')};
+					if (prodimageheight<235) {
+						$('#multilanguage').html(c).css({'top':50});
+					} else {
+						$('#multilanguage').html(c);
+					}
+
+					$('#multilanguage_list').change(function() {
+						location=$(this).val()+"?ref="+escape(pathname);
+					});
+					$('div.orntIcon').click(function() {
+						var path=$(this).attr('data-path');
+						location=path;
+					});
+				}
+		 }
+
+
+
+		/*Set default price*/
+		$('#qnty').change(function() {applyDiscountPrimer(document.mainform)});
+
+		$('form[name="mainform"]').submit(function() {
+			if (!$(':input[name$="finopt:0"]:checked').length) {
+				alert('Oops!  Please choose a Size/Material option.');
+				return false;
+			}
+			return true;
+		});
+		
+		$('#tabs3').css('display', 'none');
+		$('#schemacode').hide();
+		//$("div.pr-review-engine").insertBefore("div.pr-contents:first");
+		/*Truncate Sign Wording*/
+		var maxlen=185;
+		var wording=$('#wording').html();
+		var wordingtrunc=wording.substring(0,maxlen)+" . . . <div style='font-weight:normal;font-size:9pt;cursor:pointer;color:blue;text-decoration:underline' id='wordingexpand'>more...</div>"
+		if (wording.length>maxlen) {
+			$('#wording').html(wordingtrunc);
+			$('#wordingexpand').live('click',function() {
+				$('#wording').html(wording+"<div style='font-weight:normal;font-size:9pt;cursor:pointer;color:blue;text-decoration:underline' id='wordingcontract'>less...</div>");
+			});
+			$('#wordingcontract').live('click',function() {
+				$('#wording').html(wordingtrunc);
+			});
+		}
+		
+		
+		var totalImage = $('.MagicScroll img').size();
+		if(totalImage < 4) {
+			totalImage = totalImage;
+		} else {
+			totalImage = 4;
+		}
+		
+		MagicScroll.options = {
+		'width' : 772,
+		'items' : totalImage
+		}
+		
+	});
+</script>
+
+<!-- our tabs navigation -->
+<script type="text/javascript">
+var activeIndex = 1;
+function activateTab(index){
+    if(activeIndex != index){
+        document.getElementById("tabli" + activeIndex).className = "";
+        document.getElementById("tabs" + activeIndex).style.display = "none";
+        activeIndex = index
+        document.getElementById("tabli" + activeIndex).className = "over";
+        document.getElementById("tabs" + activeIndex).style.display = "block";
+    }
+}
+</script>
+
+<!--new added section for new header 2010-->
+<link href="/new_csigns_anim2010/webplugs-menu/menu-greenmenu-w-out-arrow.css" type="text/css" rel="stylesheet">
+<script src="/new_csigns_anim2010/webplugs-menu/webplugs/webplugs.js" type="text/javascript"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="//assets.resultspage.com/js/rac/sli-rac.1.6.css"/>
+<link rel="stylesheet" type="text/css" href="//compliancesigns.resultspage.com/rac/sli-rac.css"/>
+
+
+
+<link rel="stylesheet" href="css/sq-corners.css" type="text/css"/>
+[-- MOBILE_JAVASCRIPT --]

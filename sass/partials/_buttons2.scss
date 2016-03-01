@@ -1,0 +1,242 @@
+/*  ----------------------------  BUTTONS  -----------------------------   */
+
+
+/*  much of the real button code is created in mixins  */
+
+.cs-main {
+    /* ---------------- # Buttons: CSG Street Sign Generator buttons ---------------- */
+    //btn-group controls regular border, background colors, font size, font-family, block layout of label, color of label.
+    .btn-group {
+        @include button-group-controls-csg ($light-grey, $button-bkg-color, 12px, $button-height-lg, $button-text, $label-layout, $label-grey);
+        button {
+            border: 1px solid $button-grp-bkg;
+        }
+        .cs-btn-color-blue {
+            @include cs-btn-colored ($cs-btn-color-blue);
+        }
+        .cs-btn-color-white {
+            @include cs-btn-colored ($cs-btn-color-white);
+        }
+        .cs-btn-color-green {
+            @include cs-btn-colored ($cs-btn-color-green);
+        }
+        .cs-btn-color-brown {
+            @include cs-btn-colored ($cs-btn-color-brown);
+        }
+    }
+    /* Button Containers / designating number of buttons that fill the full width */
+    .cs-btn-two-Bu {
+        @include label-padding;
+        button {
+            width: 50%;
+        }
+    }
+    .cs-btn-three-Bu {
+        @include label-padding;
+        button {
+            width: 33.33333%;
+        }
+    }
+    .cs-btn-four-Bu {
+        @include label-padding;
+        button {
+            width: 25%;
+        }
+    }
+    .cs-btn-borders {
+        border: 2px solid #ffffff;
+    }
+    /* ---------------- # Buttons: CSG Street Sign Generator buttons - dIMMED MEDIUM PREVIEW, SAVE, RETRIEVE ETC---------------- */
+    .cs-btn-dimmed {
+        @include button-group-dimmed-csg ($button-dimm-border-color, $button-dimm-bkg-color, 12px, $button-height, $label-grey, $label-color, $label-text-size, $label-layout);
+        button {
+            padding: 4px 12px;
+            font-size: 12px;
+            transition: border-color .4s, color .4s, background-color .4s;
+        }
+    }
+    .cs-csg3-form-inline {
+        label {
+            @include label-standard-stuff;
+        }
+    }
+    /* Buttons for the Product Page  - Information section, green text and outline, dimm  */
+    .cs-btn-green-group-dimmed {
+        display: inline-block;
+        padding: 0;
+        .cs-btn-green-dimmed {
+            a {
+                display: inline-block;
+                float: left;
+                &.pull-right {
+                    clear: right;
+                }
+                button:hover {
+                    color: #ffffff;
+                    border-color: $green;
+                    background-color: $green;
+                    transition: border-color .4s, color .4s, background-color .4s;
+                }
+            }
+            @include button-group-green-dimmed-csg ($button-width);
+            //Magnifying icon inside Zoom Button
+            .glyphicon-search:before {
+                content: "\e003";
+                padding: 0px 5px 0 1px;
+                font-size: 11px;
+            }
+            button {
+                width: $button-width;
+                color: $green;
+                border-color: $green;
+                background-color: #ffffff;
+                transition: border-color .4s, color .4s, background-color .4s;
+                &:hover {
+                    color: #ffffff;
+                    border-color: $green;
+                    background-color: $green;
+                    transition: border-color .4s, color .4s, background-color .4s;
+                }
+                &:focus,
+                &:active {
+                    outline: none;
+                    outline: 0;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                }
+            }
+            //zoom and customize now button
+            .cs-btn-green-longer {
+                button {
+                    width: 80px;
+                }
+            }
+        }
+    }
+    /*  ---------------------    social media icons  -------   */
+    @mixin soc-med-circle-icon {
+        width: 28px;
+        height: 28px;
+        border: 1px solid green;
+        display: inline-block;
+        border-radius: 20px;
+        padding: 5px;
+        transition: background-color .8s;
+    }
+    /* First Button - My Signs */
+    .cs-btn-green-soc-med {
+        button {
+            &:first-of-type {
+                border-right: 1px solid #417c61;
+                margin-right: 5px;
+            }
+        }
+    }
+    /* all three buttons  */
+    .cs-btn-green-group-soc-med button,
+    .cs-btn-green-soc-med button {
+        color: $green;
+        background: #ffffff;
+        border: 1px solid $green;
+        height: 38px;
+        transition: background-color .8s;
+        margin-right: 10px;
+        float: right;
+        width: auto;
+        &:hover {
+            color: #ffffff;
+            background: $green;
+            transition: background-color .25s, color .25s;
+        }
+    }
+    /*fixing the button group borders */
+    .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+        border-bottom-right-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-left: none;
+    }
+    .btn-group>.btn:last-child:not(:first-child),
+    .btn-group>.dropdown-toggle:not(:first-child) {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+        border-right-style: dashed;
+    }
+    .cs-btn-green-group-soc-med {
+        button {
+            padding-left: 0px;
+            span.fa {
+                font-family: "Fontawesome";
+                padding: 0 0 0 24px;
+                &:before {
+                    @include soc-med-circle-icon;
+                }
+                &:after {
+                    padding: 0 10px 0 4px;
+                }
+                &.fa-heart:before {
+                    padding: 6px 5px 5px 5px;
+                }
+            }
+            span.cs-socmed-text {
+                @include font-condensed;
+                font-size: $font-size-base - 1;
+                font-weight: 300;
+                padding: 0 30px 0 5px;
+            }
+            &:hover {
+                span.fa {
+                    &:before {
+                        border: 1px solid #ffffff;
+                        transition: border .25s;
+                    }
+                }
+            }
+        }
+    }
+    .cs-btn-green-soc-med {
+        display: block;
+        float: right;
+        button {
+            padding: 2px 5px;
+            span.fa {
+                font-family: "Fontawesome";
+                padding: 0 0 0 14px;
+                &:before {
+                    @include soc-med-circle-icon;
+                }
+                &:after {
+                    padding: 0 10px 0 4px;
+                }
+            }
+            span.cs-socmed-text {
+                @include font-condensed;
+                font-weight: 300;
+                padding: 0 15px 0 5px;
+                font-size: $font-size-base - 1;
+                &:after {
+                    padding: 0 8px 0 4px;
+                }
+            }
+            &:hover {
+                span.fa:before {
+                    border: 1px solid #ffffff;
+                    transition: border .25s;
+                }
+            }
+        }
+    }
+    /* ---------   Marketing Square Buttons - in cs-product-marketing-square --------------------   */
+    .cs-btn-mktg-sq {}
+    /* ---------   Models Buttons  --------------------   */
+    button.close {
+        &:focus,
+        &:active,
+        &:active {
+            outline: none;
+        }
+    }
+}

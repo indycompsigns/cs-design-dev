@@ -1,0 +1,7 @@
+@function set-button-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return $btn-label-light-reverse; // Lighter backgorund, return dark color
+  } @else {
+    @return $btn-label-light; // Darker background, return light color
+  }
+}

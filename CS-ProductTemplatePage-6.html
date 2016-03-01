@@ -1,0 +1,55 @@
+
+
+[--DEFINE PRODUCT--]
+<td valign="top" align="center" width="33%"><p class="CSText"><a name="[-- PRODUCT.RecordNumber --]"></a> 
+<a href="[-- PRODUCT.MoreInfoURL --]" class="CSProdName"><img src="http://cdn.compliancesigns.com/media/[-- IMAGE PRODUCT.Graphic --]"  border="0" alt="[-- Product.GoogleProductType JS_ENCODE --]" title="[--Product.Name--]" /></a><br><span class="CSProdSKU">
+[-- PRODUCT.SKU --]</span>
+[-- IF PRODUCT.Field15 --]<a class="zoomicon" style="display:none" href="/media/[-- PRODUCT.Field15 --]"><img src="http://cdn.compliancesigns.com/media/css/zoom-icon.png" width="20" height="20" border=0 title="Click to view a larger image"  /></a>[-- END_IF --]
+<br></td>
+[--END_DEFINE PRODUCT--]
+
+[-- DEFINE PRODUCT_CROSS_SELL --]
+<a href="[-- Product.MoreInfoURL --]" class="rvlink"><img src="http://cdn.compliancesigns.com/media/[-- IMAGE Product.Graphic --]" alt="[-- Product.GoogleProductType JS_ENCODE --]" title="[--Product.Name--]"/></a>
+[-- END_DEFINE PRODUCT_CROSS_SELL --]
+
+[-- DEFINE MORE_INFO_PAGE--] 
+
+[-- INCLUDE _cs-header2016 process--]
+
+[-- INCLUDE _cs-headerHeadClosing-js-2016 process --]
+</head>
+
+<body>
+    [-- SS_MOBILE_REDIRECT --]
+    <!-- BEGIN: Google Tag Manager SSite Include-->
+    [-- INCLUDE GoogleTagManager --]
+    <!-- END: Google Tag Manager SSite Include-->
+    
+    <!-- ALL the MODALS  -->
+    [-- INCLUDE _cs-modal-general-2016 process --]
+
+    [-- INCLUDE _cs-menu-vert-2016 process --]
+
+    <!-- BEGIN: Google Trusted Store Badge-->
+    <!-- END: Google Trusted Store Badge-->
+    
+    [-- INCLUDE _cs-product-template-body-2016 process --]
+    
+    [-- INCLUDE _cs-cross-sell process --]
+
+    [-- INCLUDE _cs-product-marketing-squares process --]
+    
+    <!-- Customerrs also consider  -->
+    [-- INCLUDE _cs-cross-sell process --]
+
+    <!-- Recently Viewed  -->
+    [-- INCLUDE _cs-cross-sell process --]
+
+    <!-- Onscreen Footer  -->
+    [-- INCLUDE _cs-footer2016 process --]
+
+    <!-- include email-popup.html -->
+    [-- INCLUDE _cs-footer-js-2016 process--]
+    [-- INCLUDE _cs-ending-body-tag-2016 --]
+    </html>
+    [--END_DEFINE MORE_INFO_PAGE--]

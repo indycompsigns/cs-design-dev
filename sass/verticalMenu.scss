@@ -1,0 +1,392 @@
+        /*
+
+Item Name : Vertical CSS3 Mega Menu
+Author URI : http://codecanyon.net/user/Pixelworkshop/
+Version : 1.0
+*/
+        /*
+
+TABLE OF CONTENTS
+
+00 PAGE STYLING (REMOVABLE)
+01 MENU BUTTON
+   1. Mega Menu Container
+   2. Mega Menu Button
+02 DROP DOWNS
+   1. Drop Downs Default Behavior
+   2. Fade Transition
+   3. Slide Transition
+   4. Toggle Transition
+03 DROP DOWN ELEMENTS
+   1. Arrows
+   2. List Elements
+   3. Typography
+   4. Icons
+   5. Large Icons
+
+*/
+        /*  _______________________________________
+ 
+ 01 MENU BUTTON
+_______________________________________  */
+        /* 1. Mega Menu Container */
+        
+        $green-menu-height: 457px;
+        $green-menu-submenu-height: 476px;
+        $green-menu-width: 270px;
+        .megamenu_container {
+            max-width: $green-menu-width + 10;
+            height: 46px;
+            position: relative;
+            z-index: 9;
+            background: $green;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 4px;
+            margin: 0 5px 0px 5px;
+        }
+        
+        .megamenu_container:hover {
+            cursor: pointer;
+        }
+        
+        .megamenu_container a {
+            text-decoration: none;
+            @include font-normal;
+            font-size: $font-size-base - 1;
+        }
+        
+        .megamenu_container a:focus {
+            outline: none;
+        }
+        /* 2. Mega Menu Button */
+        
+        .megamenu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: inherit;
+            margin-top: 2px;
+            width: $green-menu-width;
+        }
+        
+        .megamenu .top_level {
+            display: inline;
+            border: none;
+            margin: 0;
+            padding: 10px;
+        }
+        
+        .span.glyphicon.glyphicon-menu-hamburger {
+            font-size: $font-size-base;
+            padding: 14px 6px 14px 12px;
+        }
+        
+        .megamenu .top_level > span {
+            font-size: $font-size-base - 1;
+            line-height: 12px;
+            text-transform: uppercase;
+            outline: 0;
+            text-decoration: none;
+            color: #ffffff;
+            padding: 14px 6px 20px 0;
+        }
+        /*  _______________________________________
+
+    02 DROP DOWNS
+    _______________________________________  */
+        /* 1. Drop Downs Default Behavior */
+        
+        .megamenu .megamenu_main,
+        .megamenu .megamenu_main ul {
+            position: absolute;
+            top: -9999em;
+            /* Used to avoid scrollbars */
+            left: -9999em;
+            width: $green-menu-width - 40;
+            margin: 0 0 0px -1px;
+            padding: 0;
+            -webkit-border-radius: 0 0 3px 3px;
+            -moz-border-radius: 0 0 3px 3px;
+            border-radius: 0 0 3px 3px;
+            border: solid 1px #dddddd;
+            border-top: solid 1px #ffffff;
+            background: $green;
+            opacity: 0;
+            padding-bottom: 10px;
+        }
+        
+        .megamenu .megamenu_main li .megamenu_2col {
+            width: 400px;
+        }
+        
+        .megamenu .megamenu_main li .megamenu_3col {
+            width: 600px;
+        }
+        
+        .megamenu > li:hover .megamenu_main {
+            top: 44px;
+            left: 0px;
+            opacity: 1;
+            line-height: 12px;
+            width: $green-menu-width + 11;
+            padding-bottom: 0;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        //text color for the menu items on the green ul background
+        .megamenu > li:hover .megamenu_main > a {
+            color: #ffffff;
+        }
+        
+        .megamenu .megamenu_main li:hover > ul {
+            top: -1px;
+            left: 100%;
+            opacity: 1;
+            //styling for the secondary menu
+            background: #ffffff;
+            border: 1px solid $green;
+            height: $green-menu-height;
+            height: $green-menu-submenu-height;
+            border-radius: 4px;
+            width: $green-menu-width;
+            padding-left: 0;
+        }
+        
+        .megamenu .megamenu_main li:hover > .left_dropdown {
+            left: -100%;
+        }
+        
+        .megamenu > li .main_opened {
+            top: 42px;
+            left: 0;
+            opacity: 1;
+        }
+        /* 2. Fade Transition */
+        
+        .megamenu_fade .megamenu_main,
+        .megamenu_fade .megamenu_main ul {
+            -webkit-transition: opacity 0.4s 0.2s;
+            -moz-transition: opacity 0.4s 0.2s;
+            -o-transition: opacity 0.4s 0.2s;
+            -ms-transition: opacity 0.4s 0.2s;
+            transition: opacity 0.4s 0.2s;
+        }
+        /* 3. Slide Transition */
+        
+        .megamenu_slide .megamenu_main {
+            top: 30px;
+            -webkit-transition: top 0.3s 0.2s, opacity 0 0.2s;
+            -moz-transition: top 0.3s 0.2s, opacity 0 0.2s;
+            -o-transition: top 0.3s 0.2s, opacity 0 0.2s;
+            -ms-transition: top 0.3s 0.2s, opacity 0 0.2s;
+            transition: top 0.3s 0.2s, opacity 0 0.2s;
+        }
+        
+        .megamenu_slide .megamenu_main ul {
+            left: 80%;
+            -webkit-transition: left 0.2s 0.2s, opacity 0 0.2s;
+            -moz-transition: left 0.2s 0.2s, opacity 0 0.2s;
+            -o-transition: left 0.2s 0.2s, opacity 0 0.2s;
+            -ms-transition: left 0.2s 0.2s, opacity 0 0.2s;
+            transition: left 0.2s 0.2s, opacity 0 0.2s;
+        }
+        
+        .megamenu_slide .megamenu_main li > .left_dropdown {
+            left: -80%;
+        }
+        /* 4. Toggle Transition */
+        
+        .megamenu_toggle .megamenu_main {
+            top: 30px;
+            -webkit-transition: opacity 0.4s 0.2s, top 0.3s 0.2s;
+            -moz-transition: opacity 0.4s 0.2s, top 0.3s 0.2s;
+            -o-transition: opacity 0.4s 0.2s, top 0.3s 0.2s;
+            -ms-transition: opacity 0.4s 0.2s, top 0.3s 0.2s;
+            transition: opacity 0.4s 0.2s, top 0.3s 0.2s;
+        }
+        
+        .megamenu_toggle .megamenu_main ul {
+            left: 90%;
+            -webkit-transition: opacity 0.4s 0.2s, left 0.2s 0.2s;
+            -moz-transition: opacity 0.4s 0.2s, left 0.2s 0.2s;
+            -o-transition: opacity 0.4s 0.2s, left 0.2s 0.2s;
+            -ms-transition: opacity 0.4s 0.2s, left 0.2s 0.2s;
+            transition: opacity 0.4s 0.2s, left 0.2s 0.2s;
+        }
+        
+        .megamenu_toggle .megamenu_main li > .left_dropdown {
+            left: -90%;
+        }
+        /*  _______________________________________
+
+    03 DROP DOWN ELEMENTS
+    _______________________________________  */
+        /* 1. Arrows */
+        
+        .megamenu .dropdown_arrow {}
+        
+        .megamenu .megamenu_main li.dropdown_arrow > a::after,
+        {
+            //font-family: "Glyphicon Halflings";
+            display: block;
+            position: relative;
+            color: rgba(145, 197, 173, 0.56);
+            z-index: 4000;
+            top: -11px;
+            text-align: right;
+            content: ">";
+            font-size: 11px;
+            font-weight: bold;
+            line-height: 0px;
+            right: 2px;
+            transition: color .8s;
+        }
+        
+        .megamenu .dropdown_arrow:hover {
+            color: #ffffff;
+            transition: color .2s;
+        }
+        /* 2. List Elements */
+        
+        .megamenu > li ul {
+            list-style: none;
+            padding: 0 0 0 18px;
+            margin: 0 0 18px 0;
+        }
+        
+        //Styling the top level menu
+        .megamenu > li.top_level ul li {
+            position: static;
+            padding: 3px 12px 3px 12px;
+            -webkit-transition: background-color 0.3S;
+            -moz-transition: background-color 0.3s;
+            -o-transition: background-color 0.3s;
+            -ms-transition: background-color 0.3s;
+            transition: background-color 0.3s;
+            margin: 0;
+            display: block;
+            height: 27px;
+            border-bottom: 1px solid rgba(145, 197, 173, 0.11);
+            h3 {
+                color: $near-black;
+            }
+            a {
+                color: #ffffff;
+                font-size: $font-size-base - 1;
+                @include font-normal;
+                font-weight: $normal;
+                vertical-align: middle;
+                display: inline;
+                margin: 0;
+                padding-left: 20px;
+                line-height: 20px;
+            }
+            &:hover {
+                background-color: lighten($green, 30%);
+            }
+            //Styling the fist level menu
+            ul li {
+                padding: 6px 12px 6px 16px;
+                height: auto;
+                margin: 0;
+                &:hover {
+                    background-color: lighten($green, 30%);
+                    color: #ffffff;
+                }
+                &.second_level:hover {
+                    background-color: white;
+                    color: #ffffff;
+                }
+                a {
+                    color: $near-black;
+                    padding-left: 0;
+                    line-height:13px
+                }
+                h3 {
+                    padding: 0;
+                    margin: 8px 0px 0 0;
+                    transition: background .8s;
+                    &:hover {
+                        a {
+                            //transition: color .05s;
+                            //font-size: $font-size-base;
+                            //font-weight: $font-size-base + 1;
+                        }
+                    }
+                    //Styling the second level menu
+                    li > a {
+                        color: $green;
+                        font-size: $font-size-base - 1;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: $font-size-base + 1;
+                        vertical-align: middle;
+                        display: inline;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+        
+        //Second Level styling, fixing the hover for the h3 and the spacing etc
+        ul.multi_column.col-xs-4 {
+            width: 260px;
+            line-height: 14px;
+            padding-top: 6px;
+            li {
+                height: 24px;
+            }
+        }
+        
+        .second_level:hover {
+            background-color: #ffffff;
+        }
+        
+        ul.megamenu_main li.title.dropdown_arrow ul li::first-of-type {
+            padding: 20px 12px 0px 12px;
+        }
+        
+        .megamenu > li ul .relative_dropdown {
+            position: relative;
+        }
+        /* 3. Typography */
+        
+        .megamenu p {
+            padding: 0;
+            margin: 0 0 12px 0;
+        }
+        
+        .megamenu h3 {
+            font-size: $font-size-base - 1;
+            padding: 0;
+            margin: 12px 12px 2px 12px;
+            color: $green;
+            text-transform: capitalize;
+            font-weight: bold;
+            border-bottom: 1px solid $green;
+        }
+        
+        .megamenu .new {
+            font-size: xx-small;
+            vertical-align: text-top;
+            color: #e10000;
+        }
+        
+        .megamenu .small {
+            font-size: 11px;
+            color: #888888;
+            display: block;
+            padding: 0;
+            margin-top: 4px;
+        }
+        
+        .multi-column {
+            width: 450px;
+        }
+        
+        .cs-multi-col-1,
+        .cs-multi-col-2 {
+            max-height: 457px;
+            width: 50%;
+        }

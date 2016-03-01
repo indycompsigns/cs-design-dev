@@ -1,0 +1,32 @@
+/* ---------------------- # Color variables : All color variables ---------------------- */
+
+$label-grey: #A7A9AC;
+$light-grey: #A7A9AC;   //box shadow mixin uses rgb equiv of this:  rgba(167, 169, 172, 1)
+$lightest-grey: #E6E7E8; //used on dimm button borders
+$lightest-grey-text: #bcbec0;
+$light-grey-text: #939598;
+$dark-grey-text: #6D6E71;
+$near-black: #231F20;
+$disabled-bkg: #E0E0E0;
+$orange: #F5952E;
+$unselected-bkg: #E6E7E8;
+$blue: #06559a; // this is the blue used on the site 2015 for top links etc
+$slate-blue:#718fb3;
+$green: #417c61;
+//$light-green:#A7CCBB;
+$light-green: lighten($green, 40%);
+//$lightest-green: #E9F1EB;
+$lightest-green: lighten($green, 57%);
+$dark-green: darken($green, 5%);
+$darkest-green: darken($green, 20%);
+$green-inactive-tab: #57987a;
+$green-active-tab: #57987a;
+
+
+/* These are temporary colors to make the file work until I clear out all the unneeded variables  */
+$red: red;
+$grey: #5D5E5E;
+$primary-color: $green;
+
+/* Button variables  */
+$button-text-size: 17px;
